@@ -38,14 +38,17 @@ _comp_options+=(globdots)               # Include hidden files.
 [ -f "$HOME/.zsh/aliasrc" ] && source "$HOME/.zsh/aliasrc"
 
 # Load ; should be last.
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-[[ -s /home/sga/.autojump/etc/profile.d/autojump.sh ]] && source /home/sga/.autojump/etc/profile.d/autojump.sh
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 # source /usr/share/autojump/autojump.zsh 2>/dev/null
-source /home/sga/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zsh-autocomplete bindings
 bindkey '^X' autosuggest-accept
+
+# zsh standard bindings
+bindkey '^q' push-line-or-edit
 # Add to path
 path+=('/home/sga/bin')
 path+=('/home/sga/.rbenv/bin')
