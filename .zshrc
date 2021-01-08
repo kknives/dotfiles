@@ -43,13 +43,14 @@ source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 # source /usr/share/autojump/autojump.zsh 2>/dev/null
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source $HOME/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # zsh-syntax-highlighting color changes
 #ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
 #ZSH_HIGHLIGHT_STYLES[arg0]=fg=green
 #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
 
-bindkey -v # Vim keybindings and modal editing
+#bindkey -v # Vim keybindings and modal editing
 bindkey '^X' autosuggest-accept
 
 # Add to path
