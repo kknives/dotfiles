@@ -40,6 +40,7 @@ let g:clang_format#code_style = "mozilla"
 " Omni Completion
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+let g:NERDSpaceDelims = 1
 " Mark spaces with a ·
 " :set listchars=space:·
 " :set list
