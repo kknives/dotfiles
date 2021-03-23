@@ -55,6 +55,9 @@ let g:netrw_banner = 0
 let g:netrw_winsize = 15
 let g:netrw_browse_split = 4
 
+" Buffalo config
+let buffalo_autoaccept = 1
+
 " Use spaces instead of tabs
 set expandtab
 
@@ -69,6 +72,7 @@ set tabstop=2
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
     \ }
+let g:LanguageClient_hideVirtualTextsOnInsert = 1
 
 nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
