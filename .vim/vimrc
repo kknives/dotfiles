@@ -21,8 +21,6 @@ let g:lightline = {
 set laststatus=2
 set noshowmode
 
-nnoremap <F7> :bprev<CR>
-nnoremap <F8> :bnext<CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
