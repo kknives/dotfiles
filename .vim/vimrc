@@ -56,7 +56,7 @@ let g:netrw_winsize = 15
 let g:netrw_browse_split = 4
 
 " Buffalo config
-let buffalo_autoaccept = 1
+"let buffalo_autoaccept = 1
 
 " Use spaces instead of tabs
 set expandtab
