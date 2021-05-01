@@ -82,6 +82,7 @@ nmap <silent> <F2> <Plug>(lcn-rename)
 
 " Enable syntax highlighting for python
 let g:python_highlight_all = 1
+let g:hindent_on_save = 1
 " Setup vim-plug
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -94,12 +95,14 @@ endif
 call plug#begin()
 
 Plug 'dahu/vimple'
+Plug 'neovimhaskell/haskell-vim'
 Plug 'Raimondi/vim-buffalo'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'make release',
     \ }
 Plug 'junegunn/fzf'
+Plug 'alx741/vim-hindent'
 Plug 'preservim/nerdcommenter'
 Plug 'rust-lang/rust.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -123,5 +126,5 @@ call plug#end()
 
 " Defining theme
 syntax on
+filetype plugin indent on
 colorscheme xcodedark
-
