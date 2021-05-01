@@ -69,10 +69,10 @@ set shiftwidth=2
 set tabstop=2
 
 " LSP config
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
-    \ }
-let g:LanguageClient_hideVirtualTextsOnInsert = 1
+" let g:LanguageClient_serverCommands = {
+     " 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
+    " \ }
+" let g:LanguageClient_hideVirtualTextsOnInsert = 1
 
 nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
