@@ -82,6 +82,9 @@ nmap <silent> <F2> <Plug>(lcn-rename)
 
 " Enable syntax highlighting for python
 let g:python_highlight_all = 1
+
+" Haskell specific highlighting configs
+let g:haskell_classic_highlighting = 1   " to enable highlighting of `forall`
 let g:hindent_on_save = 1
 " Setup vim-plug
 
