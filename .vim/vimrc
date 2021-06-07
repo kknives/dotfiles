@@ -86,6 +86,12 @@ let g:python_highlight_all = 1
 " Haskell specific highlighting configs
 let g:haskell_classic_highlighting = 1   " to enable highlighting of `forall`
 let g:hindent_on_save = 1
+
+" C/C++ based plugins
+nmap <F8> :TagbarToggle<CR>
+
+" Fugitive keymaps
+nmap <Leader>gd :Gdiffsplit<CR>
 " Setup vim-plug
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -97,6 +103,8 @@ endif
 " Define plugins
 call plug#begin()
 
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'dahu/vimple'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'Raimondi/vim-buffalo'
@@ -123,6 +131,7 @@ Plug 'xolox/vim-misc'
 "Plug 'xolox/vim-notes'
 Plug 'elixir-editors/vim-elixir'
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'preservim/tagbar'
 Plug 'bfrg/vim-cpp-modern'
 
 call plug#end()
