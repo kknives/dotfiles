@@ -14,6 +14,9 @@ EDITOR="nvim"
 # Pure Prompt
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
+zstyle :prompt:pure:prompt:success color green
+zstyle :prompt:pure:prompt:continuation color green
+PURE_PROMPT_SYMBOL=•
 prompt pure
 
 # History in cache directory:
