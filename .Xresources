@@ -19,7 +19,7 @@ XTerm.vt100.scaleHeight: 1.2
 XTerm.vt100.internalBorder: 0
 
 ! Background
-xterm*background: #303030
+xterm*background: #000000
 xterm*foreground: #f2f2f2
 
 ! Colors: Elio theme
