@@ -61,3 +61,9 @@ path+=('/home/sga/.rbenv/bin')
 path+=('/home/sga/.rbenv/plugins/ruby-build/bin')
 
 eval "$(rbenv init -)"
+
+PATH="/home/sga/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/sga/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/sga/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/sga/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/sga/perl5"; export PERL_MM_OPT;
