@@ -28,6 +28,10 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <Leader>y :call system('xclip -selection clipboard', @0)<CR>
 nmap <unique><silent> <leader>b <Plug>BuffaloTrigger
 
+" For yaml files
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml :IndentLinesToggle
+
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 nmap , <Plug>RDSendLine
@@ -87,6 +91,11 @@ let g:python_highlight_all = 1
 let g:haskell_classic_highlighting = 1   " to enable highlighting of `forall`
 let g:hindent_on_save = 1
 
+" Disable indent highlighting by default
+" Enable using :IndentLinesToggle
+let g:indentLine_char = '⦙'
+let g:indentLine_enabled = 0
+
 " C/C++ based plugins
 nmap <F8> :TagbarToggle<CR>
 
@@ -103,6 +112,7 @@ endif
 " Define plugins
 call plug#begin()
 
+Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'dahu/vimple'
