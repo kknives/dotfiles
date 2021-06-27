@@ -36,8 +36,6 @@ function clicolors() {
     c=''
 }
 
-export EDITOR=nano
-
 alias pacman-update='sudo pacman-mirrors --geoip'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME'
 
