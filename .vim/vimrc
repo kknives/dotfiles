@@ -15,9 +15,6 @@ set backupdir=~/.vim/_backup/,~/tmp,.
 set undofile
 set undodir=~/.vim/_undo/
 
-let g:lightline = {
-      \ 'colorscheme': 'deus',
-      \ }
 set laststatus=2
 set noshowmode
 
@@ -26,41 +23,14 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <Leader>y :call system('xclip -selection clipboard', @0)<CR>
-nmap <unique><silent> <leader>b <Plug>BuffaloTrigger
-
-" For yaml files
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType yaml :IndentLinesToggle
-
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
-nmap , <Plug>RDSendLine
-vmap , <Plug>RDSendSelection
-vmap ,e <Plug>RESendSelection
-
-" Clang-format options
-let g:clang_format#code_style = "mozilla"
 
 " Omni Completion
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-let g:NERDSpaceDelims = 1
-" Mark spaces with a ·
-" :set listchars=space:·
-" :set list
 
 " More natural splitting
 set splitbelow
 set splitright
-
-" netrw configs
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-let g:netrw_winsize = 15
-let g:netrw_browse_split = 4
-
-" Buffalo config
-"let buffalo_autoaccept = 1
 
 " Use spaces instead of tabs
 set expandtab
@@ -72,35 +42,6 @@ set smarttab
 set shiftwidth=2
 set tabstop=2
 
-" LSP config
-" let g:LanguageClient_serverCommands = {
-     " 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
-    " \ }
-" let g:LanguageClient_hideVirtualTextsOnInsert = 1
-
-nmap <F5> <Plug>(lcn-menu)
-" Or map each action separately
-nmap <silent><Leader>d <Plug>(lcn-hover)
-nmap <silent> gd <Plug>(lcn-definition)
-nmap <silent> <F2> <Plug>(lcn-rename)
-
-" Enable syntax highlighting for python
-let g:python_highlight_all = 1
-
-" Haskell specific highlighting configs
-let g:haskell_classic_highlighting = 1   " to enable highlighting of `forall`
-let g:hindent_on_save = 1
-
-" Disable indent highlighting by default
-" Enable using :IndentLinesToggle
-let g:indentLine_char = '⦙'
-let g:indentLine_enabled = 0
-
-" C/C++ based plugins
-nmap <F8> :TagbarToggle<CR>
-
-" Fugitive keymaps
-nmap <Leader>gd :Gdiffsplit<CR>
 " Setup vim-plug
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -131,22 +72,75 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-unimpaired'
-Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'vim-python/python-syntax'
-"Plug 'jalvesaq/Nvim-R'
 Plug 'itchyny/lightline.vim'
 Plug 'xolox/vim-misc'
-"Plug 'xolox/vim-notes'
 Plug 'elixir-editors/vim-elixir'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'preservim/tagbar'
 Plug 'bfrg/vim-cpp-modern'
+Plug 'bluz71/vim-nightfly-guicolors'
 
 call plug#end()
+
+" PLACE ALL PLUGIN SPECIFIC CONFIGURATION HERE
+
+" LSP config
+" let g:LanguageClient_serverCommands = {
+     " 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
+    " \ }
+" let g:LanguageClient_hideVirtualTextsOnInsert = 1
+
+nmap <F5> <Plug>(lcn-menu)
+" Or map each action separately
+nmap <silent><Leader>d <Plug>(lcn-hover)
+nmap <silent> gd <Plug>(lcn-definition)
+nmap <silent> <F2> <Plug>(lcn-rename)
+
+let g:NERDSpaceDelims = 1
+
+" netrw configs
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_winsize = 15
+let g:netrw_browse_split = 4
+
+" Enable syntax highlighting for python
+let g:python_highlight_all = 1
+
+" Haskell specific highlighting configs
+let g:haskell_classic_highlighting = 1   " to enable highlighting of `forall`
+let g:hindent_on_save = 1
+
+" Disable indent highlighting by default
+" Enable using :IndentLinesToggle
+let g:indentLine_char = '⦙'
+let g:indentLine_enabled = 0
+
+nmap <silent> <leader>b <Plug>BuffaloTrigger
+
+" For yaml files
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml :IndentLinesToggle
+
+" C/C++ based plugins
+nmap <F8> :TagbarToggle<CR>
+" Clang-format options
+let g:clang_format#code_style = "mozilla"
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+
+" Fugitive keymaps
+nmap <Leader>gd :Gdiffsplit<CR>
 
 " Defining theme
 syntax on
 filetype plugin indent on
-colorscheme xcodedark
+set termguicolors
+colorscheme nightfly
+let g:nightflyCursorColor = 1
+let g:lightline = {
+      \ 'colorscheme': 'nightfly',
+      \ }
