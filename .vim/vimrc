@@ -70,6 +70,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'kana/vim-operator-user'
+Plug 'ruby-formatter/rufo-vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
@@ -120,6 +121,9 @@ let g:indentLine_char = '⦙'
 let g:indentLine_enabled = 0
 
 nmap <silent> <leader>b <Plug>BuffaloTrigger
+
+" Enable rufo (RUby FOrmat)
+let g:rufo_auto_formatting = 1
 
 " For yaml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
