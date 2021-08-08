@@ -53,17 +53,17 @@ endif
 " Define plugins
 call plug#begin()
 
+Plug 'SirVer/ultisnips'
 Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 Plug 'dahu/vimple'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'Raimondi/vim-buffalo'
 Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'make release',
-    \ }
+      \ 'branch': 'next',
+      \ 'do': 'make release',
+      \ }
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'alx741/vim-hindent'
 Plug 'preservim/nerdcommenter'
 Plug 'rust-lang/rust.vim'
@@ -72,6 +72,10 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'kana/vim-operator-user'
 Plug 'ruby-formatter/rufo-vim'
 Plug 'rhysd/vim-clang-format'
+Plug 'sbdchd/neoformat'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
@@ -90,9 +94,17 @@ call plug#end()
 
 " LSP config
 " let g:LanguageClient_serverCommands = {
-     " 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
-    " \ }
+" 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
+" \ }
 " let g:LanguageClient_hideVirtualTextsOnInsert = 1
+
+" FZF mappings
+let g:fzf_layout = { 'down': '~40%' }
+map <leader>t :GFiles<CR>
+nnoremap <C-g> :Ag<Cr>
+
+" Tagbar toggle
+nmap <F8> :TagbarToggle<CR>
 
 nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
@@ -123,11 +135,18 @@ let g:indentLine_enabled = 0
 nmap <silent> <leader>b <Plug>BuffaloTrigger
 
 " Enable rufo (RUby FOrmat)
-let g:rufo_auto_formatting = 1
+" let g:rufo_auto_formatting = 1
 
 " For yaml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yml :IndentLinesToggle
 autocmd FileType yaml :IndentLinesToggle
+
+" For autoformatting code on save
+autocmd BufWritePre *.jsx Neoformat
+" Python support for nvim
+let g:python3_host_prog="/bin/python3"
 
 " C/C++ based plugins
 nmap <F8> :TagbarToggle<CR>
