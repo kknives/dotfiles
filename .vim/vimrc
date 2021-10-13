@@ -144,7 +144,14 @@ autocmd FileType yml :IndentLinesToggle
 autocmd FileType yaml :IndentLinesToggle
 
 " For autoformatting code on save
+let g:neoformat_only_msg_on_error = 1
+
 autocmd BufWritePre *.jsx Neoformat
+autocmd BufWritePre *.go Neoformat
+autocmd BufWritePre *.py Neoformat
+autocmd BufWritePre *.cpp Neoformat
+autocmd BufWritePre *.h Neoformat
+autocmd BufWritePre *.R Neoformat
 " Python support for nvim
 let g:python3_host_prog="/bin/python3"
 
