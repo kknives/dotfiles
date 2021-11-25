@@ -152,6 +152,9 @@ autocmd BufWritePre *.py Neoformat
 autocmd BufWritePre *.cpp Neoformat
 autocmd BufWritePre *.h Neoformat
 autocmd BufWritePre *.R Neoformat
+autocmd BufWritePre *.tex Neoformat
+autocmd BufWritePre *.ltx Neoformat
+
 " Python support for nvim
 let g:python3_host_prog="/bin/python3"
 
