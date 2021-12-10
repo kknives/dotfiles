@@ -54,6 +54,7 @@ endif
 call plug#begin()
 
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'Yggdroot/indentLine'
 Plug 'dahu/vimple'
 Plug 'neovimhaskell/haskell-vim'
@@ -97,6 +98,12 @@ call plug#end()
 " 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
 " \ }
 " let g:LanguageClient_hideVirtualTextsOnInsert = 1
+
+" Ultisnips config
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 " FZF mappings
 let g:fzf_layout = { 'down': '~40%' }
