@@ -35,6 +35,7 @@ PURE_PROMPT_SYMBOL=•
 prompt pure
 
 # History in cache directory:
+setopt HIST_IGNORE_SPACE
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
