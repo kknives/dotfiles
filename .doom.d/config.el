@@ -56,8 +56,10 @@
 ;; Racket formatter: Same as elisp formatter, which is elisp
 (set-formatter! 'racket-format-elisp "emacs" :modes '(racket-mode))
 
-;; Turn off evil mode in vterm mode
-(add-to-list 'evil-emacs-state-modes 'vterm-mode)
+(defun zz/adjust-org-company-backends ()
+  (remove-hook 'after-change-major-mode-hook '+company-init-backends-h)
+  (setq-local company-backends nil))
+(add-hook! org-mode (zz/adjust-org-company-backends))
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
