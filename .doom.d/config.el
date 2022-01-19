@@ -60,6 +60,7 @@
   (remove-hook 'after-change-major-mode-hook '+company-init-backends-h)
   (setq-local company-backends nil))
 (add-hook! org-mode (zz/adjust-org-company-backends))
+(latex-preview-pane-enable)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
