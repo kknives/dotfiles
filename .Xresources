@@ -1,6 +1,7 @@
 ! xterm config
 XTerm.termName: xterm-256color
 xterm*loginShell: true
+xterm*decTerminalID: vt340
 
 ! Sensible defaults
 XTerm.vt100.locale: false
