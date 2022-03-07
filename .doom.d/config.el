@@ -40,6 +40,7 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
+(setq org-agenda-files (file-expand-wildcards (concat org-directory "/*/*")))
 (setq projectile-project-search-path '("~/code/"))
 (add-hook! org-mode (electric-indent-local-mode -1))
 ;;(add-hook! 'org-mode-hook #'mixed-pitch-mode)
