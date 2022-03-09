@@ -88,3 +88,13 @@ alias unexport='unset'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+# Sixel support in xterm
+sixview() {
+if [ -n "$1" ]
+then
+convert $1 -geometry 800x480 sixel:-
+else
+echo "Usage: sixview path/to/image"
+fi
+}
