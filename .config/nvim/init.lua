@@ -66,6 +66,17 @@ require('packer').startup(function(use)
     use 'p00f/nvim-ts-rainbow' -- always know your braces
     use 'abecodes/tabout.nvim' -- tab out of surrounds
     use 'folke/which-key.nvim' -- describe key chords
+    use 'matbme/JABS.nvim' -- Buffer switching
+    use 'windwp/nvim-autopairs' -- Delimiters in pairs
+    use 'gpanders/editorconfig.nvim' -- EditorConfig integration
+    use 'kylechui/nvim-surround' -- Operate on delimiters
+    use 'glepnir/dashboard-nvim' -- a dashboard
+    use 'sbdchd/neoformat' -- autoformat code
+    use {'ms-jpq/coq_nvim', branch='coq'}
+    use {
+        'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
+        config = function() require('gitsigns').setup() end
+      }
     use {
       'kyazdani42/nvim-tree.lua',
       requires = {
@@ -73,6 +84,19 @@ require('packer').startup(function(use)
       },
       tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup {
+      }
+    end
+  }
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use 'cljoly/telescope-repo.nvim'
   if install_plugins then
     require('packer').sync()
   end
@@ -85,6 +109,8 @@ end
 ---- plugin specific config
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
   view = {
     adaptive_size = true,
     mappings = {
@@ -97,9 +123,21 @@ require("nvim-tree").setup({
     group_empty = true,
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
   },
 })
+require('telescope').setup()
+require('telescope').load_extension('repo')
+require('dashboard').custom_header = {
+ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',}
+require('nvim-surround').setup()
+require('nvim-autopairs').setup()
+require('jabs').setup {}
 require('which-key').setup()
 require('Comment').setup()
 require('tabout').setup({
@@ -164,23 +202,43 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-require('lspconfig').clangd.setup{}
+local lsp = require "lspconfig"
+local coq = require "coq"
+lsp.clangd.setup{cmd={'clangs'}, coq.lsp_ensure_capabilities()}
+-- lsp.clangd.setup(coq.lsp_ensure_capabilities())
 require('lualine').setup {
-options = {
-theme = 'codedark',
-section_separators = '', component_separators = ''
-}
+  options = {
+  theme = 'codedark',
+  section_separators = '', component_separators = ''
+  }
 }
 require('lualine').setup()
 vim.opt.termguicolors = true
 
-vim.cmd('colorscheme github_dark_default')
+vim.cmd('colorscheme tokyonight-night')
 
 -- gui config
 vim.opt.guifont = 'Iosevka:h13'
 -- keybindings
 vim.g.mapleader = ' '
 
+local wk = require('which-key')
+wk.register( {
+  f = {
+    name = "fileops",
+    f = { "<cmd>NvimTreeToggle<cr>", "Toggle NvimTree" },
+    r = {require('telescope.builtin').oldfiles, "List recent files"},
+    g = {require('telescope.builtin').treesitter, "List treesitter objects in current buffer"},
+  },
+}, { prefix = "<leader>" })
+wk.register({
+  ["<leader>,"] = {"<cmd>:JABSOpen<cr>", "Buffer switch"},
+  ["<leader>p"] = {"<cmd>:Telescope repo list<cr>", "Browse local repos"},
+  ["<leader>."] = {"<cmd>:Telescope find_files<cr>", "Browse files in current project"},
+  ["<leader>pf"] = {"<cmd>:Telescope live_grep<cr>", "Search through current repo"},
+  ["<leader>bb"] = {"<cmd>:Telescope buffers<cr>", "Switch current buffer"},
+  ["<leader>bk"] = {"<cmd>:bd<cr>", "Unload current buffer"},
+})
 
 -- autocmds
 
