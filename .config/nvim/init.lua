@@ -1,13 +1,14 @@
 -- init.lua
 -- main (package independent) config
+vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.hidden = true
 
 vim.opt.backup = true
-vim.opt.backupdir = '~/.nvim/_backup/,~/tmp,.'
+vim.opt.backupdir = '/home/sga/.nvim/_backup/,/home/sga/tmp'
 
 vim.opt.undofile = true
-vim.opt.undodir = '~/.nvim/_undo'
+vim.opt.undodir = '/home/sga/.nvim/_undo'
 vim.opt.laststatus = 2
 vim.cmd(':set noshowmode')
 
@@ -52,7 +53,7 @@ require('packer').startup(function(use)
     -- package manager
     use 'wbthomason/packer.nvim'
     -- theme
-    use 'projekt0n/github-nvim-theme'
+    use 'folke/tokyonight.nvim'
     -- statusline
     use {
     'nvim-lualine/lualine.nvim',
