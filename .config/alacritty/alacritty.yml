@@ -1,0 +1,54 @@
+# Colors (Nightfly)
+env:
+  TERM: xterm-256color
+fonts:
+  normal:
+    family:	Iosevka
+    style: Regular
+  size: 24
+draw_bold_text_with_bright_colors: true
+colors:
+   # Default colors
+  primary:
+     background: '#0a1321'
+     foreground: '#f2f2f2'
+     dim_background: '#5d5d5d'
+
+  cursor:
+    text: '#fafafa'
+    cursor: '#f2f2f2'
+
+  selection:
+    text: '#080808'
+    background: '#b2ceee'
+
+   # Normal colors
+  normal:
+    black:   '#303030'
+    red:     '#e1321a'
+    green:   '#6ab017'
+    yellow:  '#ffc005'
+    blue:    '#729fcf'
+    magenta: '#ec0048'
+    cyan:    '#2aa7e7'
+    white:   '#f2f2f2'
+
+   # Bright colors
+  bright:
+    black:   '#5d5d5d'
+    red:     '#e1321a'
+    green:   '#6ab017'
+    yellow:  '#ffc005'
+    blue:    '#729fcf'
+    magenta: '#ec0048'
+    cyan:    '#2aa7e7'
+    white:   '#f2f2f2'
+  dim:
+    black:   '#303030'
+    red:     '#e1321a'
+    green:   '#6ab017'
+    yellow:  '#ffc005'
+    blue:    '#729fcf'
+    magenta: '#ec0048'
+    cyan:    '#2aa7e7'
+    white:   '#f2f2f2'
