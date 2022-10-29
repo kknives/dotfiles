@@ -35,6 +35,7 @@ colors:
 
    # Bright colors
   bright:
+    # This is the autocomplete color
     black:   '#5d5d5d'
     red:     '#e1321a'
     green:   '#6ab017'
