@@ -9,7 +9,6 @@ vim.opt.backupdir = '/home/sga/.nvim/_backup/,/home/sga/tmp'
 
 vim.opt.undofile = true
 vim.opt.undodir = '/home/sga/.nvim/_undo'
-vim.opt.laststatus = 2
 vim.cmd(':set noshowmode')
 
 vim.opt.splitright = true
@@ -97,6 +96,7 @@ require('packer').startup(function(use)
   }
 
   use 'cljoly/telescope-repo.nvim'
+  use 'nanozuki/tabby.nvim'
   if install_plugins then
     require('packer').sync()
   end
@@ -107,6 +107,20 @@ if install_plugins then
 end
 
 ---- plugin specific config
+require('tabby.tabline').use_preset('active_wins_at_tail', {
+  theme = {
+    fill = 'TabLineFill', -- tabline background
+    head = 'TabLine', -- head element highlight
+    current_tab = 'TabLineSel', -- current tab label highlight
+    tab = 'TabLine', -- other tab label highlight
+    win = 'TabLine', -- window highlight
+    tail = 'TabLine', -- tail element highlight
+  },
+  nerdfont = true, -- whether use nerdfont
+  buf_name = {
+      mode = "'unique'|'relative'|'tail'|'shorten'",
+  },
+})
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   sync_root_with_cwd = true,
@@ -238,6 +252,18 @@ wk.register({
   ["<leader>pf"] = {"<cmd>:Telescope live_grep<cr>", "Search through current repo"},
   ["<leader>bb"] = {"<cmd>:Telescope buffers<cr>", "Switch current buffer"},
   ["<leader>bk"] = {"<cmd>:bd<cr>", "Unload current buffer"},
+})
+wk.register({
+  ["<M-w>"] = {"<cmd>:tabnew<cr>", "Create a new tab"},
+  ["<M-1>"] = {"1gt", "Goto tab#1"},
+  ["<M-2>"] = {"2gt", "Goto tab#2"},
+  ["<M-3>"] = {"3gt", "Goto tab#3"},
+  ["<M-4>"] = {"4gt", "Goto tab#4"},
+  ["<M-5>"] = {"5gt", "Goto tab#5"},
+  ["<M-6>"] = {"6gt", "Goto tab#6"},
+  ["<M-7>"] = {"7gt", "Goto tab#7"},
+  ["<M-8>"] = {"8gt", "Goto tab#8"},
+  ["<M-9>"] = {"9gt", "Goto tab#9"},
 })
 
 -- autocmds
