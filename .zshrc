@@ -9,13 +9,15 @@
 # Setup Alias in $HOME/.zsh/aliasrc
 
 # Enable colors and change prompt:
-EDITOR="nvim"
+EDITOR="hx"
 
 if [[ `uname` == Darwin ]]; then
     MAX_MEMORY_UNITS=KB
 else
     MAX_MEMORY_UNITS=MB
 fi
+
+stty ixany
 
 TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
 'avg shared (code):         %X KB'$'\n'\
