@@ -1,11 +1,11 @@
 # Colors (Nightfly)
 env:
   TERM: xterm-256color
-fonts:
+font:
+  size: 10.0
   normal:
     family:	Iosevka
     style: Regular
-  size: 24
 draw_bold_text_with_bright_colors: true
 colors:
    # Default colors
@@ -16,7 +16,7 @@ colors:
 
   cursor:
     text: '#fafafa'
-    cursor: '#f2f2f2'
+    cursor: '#b2ceee'
 
   selection:
     text: '#080808'
