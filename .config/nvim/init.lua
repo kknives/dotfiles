@@ -252,6 +252,7 @@ local on_attach = function(client, bufnr)
 end
 local coq = require "coq"
 lsp.clangd.setup{cmd={'clangs'}, coq.lsp_ensure_capabilities()}
+-- lsp.rust_analyzer.setup{coq.lsp_ensure_capabilities()}
 -- lsp.clangd.setup(coq.lsp_ensure_capabilities())
 vim.api.nvim_set_var("test_var", vim.fn.getcwd())
 if string.find(vim.fn.expand("%:F"), "chrysoberyl") ~= nil then
@@ -271,7 +272,7 @@ vim.opt.termguicolors = true
 vim.cmd('colorscheme tokyonight-night')
 
 -- gui config
-vim.opt.guifont = 'Iosevka:h13'
+vim.opt.guifont = 'Iosevka:h10'
 -- keybindings
 vim.g.mapleader = ' '
 
