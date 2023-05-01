@@ -52,6 +52,10 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)               # Include hidden files.
 
+LINES=$(tput lines)
+for (( i=1; i<=$LINES; i++ )); do echo; done; clear
+
+[ -f "$HOME/.zsh/zellij.zsh" ] && source "$HOME/.zsh/zellij.zsh"
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.zsh/aliasrc" ] && source "$HOME/.zsh/aliasrc"
