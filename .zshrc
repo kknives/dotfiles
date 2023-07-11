@@ -83,7 +83,7 @@ path+=('/usr/lib/cuda/bin')
 path+=('/home/sga/.rbenv/bin')
 path+=('/home/sga/.rbenv/plugins/ruby-build/bin')
 
-# eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
 
 eval "$(rbenv init -)"
 
