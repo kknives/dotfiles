@@ -80,8 +80,7 @@ bindkey '^X' autosuggest-accept
 path+=('/home/sga/bin')
 path+=('/home/sga/builds/node-v12.18.2-linux-x64/bin')
 path+=('/usr/lib/cuda/bin')
-path+=('/home/sga/.rbenv/bin')
-path+=('/home/sga/.rbenv/plugins/ruby-build/bin')
+if [ -e /home/sga/.nix-profile/etc/profile.d/nix.sh ]; then . /home/sga/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 eval "$(direnv hook zsh)"
 
@@ -95,3 +94,5 @@ PERL_MM_OPT="INSTALL_BASE=/home/sga/perl5"; export PERL_MM_OPT;
 
 # opam configuration
 [[ ! -r /home/sga/.opam/opam-init/init.zsh ]] || source /home/sga/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+export HELIX_RUNTIME=~/clones/helix/runtime
