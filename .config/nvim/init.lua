@@ -71,6 +71,7 @@ require('packer').startup(function(use)
     use 'kylechui/nvim-surround' -- Operate on delimiters
     use 'glepnir/dashboard-nvim' -- a dashboard
     use 'sbdchd/neoformat' -- autoformat code
+    use 'github/copilot.vim'
     use 'simrat39/rust-tools.nvim'
     use {'ms-jpq/coq_nvim', branch='coq'}
     use {

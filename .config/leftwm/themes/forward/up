@@ -2,7 +2,7 @@
 export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 # Enable tap-to-click touchpad gesture
-exec --no-startup-id /usr/bin/xinput set-prop "MSFT0001:01 06CB:CD5F Touchpad" "libinput Tapping Enabled" 1
+exec /usr/bin/xinput set-prop "MSFT0001:01 06CB:CD5F Touchpad" "libinput Tapping Enabled" 1
 
 #down the last running theme
 if [ -f "/tmp/leftwm-theme-down" ]; then

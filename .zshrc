@@ -84,8 +84,6 @@ if [ -e /home/sga/.nix-profile/etc/profile.d/nix.sh ]; then . /home/sga/.nix-pro
 
 eval "$(direnv hook zsh)"
 
-eval "$(rbenv init -)"
-
 PATH="/home/sga/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/sga/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/sga/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
@@ -94,5 +92,4 @@ PERL_MM_OPT="INSTALL_BASE=/home/sga/perl5"; export PERL_MM_OPT;
 
 # opam configuration
 [[ ! -r /home/sga/.opam/opam-init/init.zsh ]] || source /home/sga/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-
 export HELIX_RUNTIME=~/clones/helix/runtime

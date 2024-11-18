@@ -38,6 +38,7 @@ function clicolors() {
 
 alias pacman-update='sudo pacman-mirrors --geoip'
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME'
+alias current='cat ~/notes/current'
 
 
 # Python stuff

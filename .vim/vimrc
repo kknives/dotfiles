@@ -197,3 +197,5 @@ let g:nightflyCursorColor = 1
 let g:lightline = {
       \ 'colorscheme': 'nightfly',
       \ }
+" vimdiff
+" Diff colors (Stand with Ukraine).
