@@ -2,7 +2,10 @@
 	diffFilter = delta --color-only --features=interactive
 [alias]
   ap = add --patch
-	please = push --force-with-lease
+  please = push --force-with-lease
+  ignore = !git update-index --assume-unchanged 
+  unignore = !git update-index --no-assume-unchanged
+  ignored = !git ls-files -v | grep ^[a-z]
 [user]
 	email = shashwatganesh@protonmail.com
 [core]
@@ -28,3 +31,8 @@
     hunk-header-file-style = red
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
