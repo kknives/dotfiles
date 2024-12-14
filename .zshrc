@@ -85,3 +85,4 @@ if [ -e /home/sga/.nix-profile/etc/profile.d/nix.sh ]; then . /home/sga/.nix-pro
 eval "$(direnv hook zsh)"
 
 export HELIX_RUNTIME=~/clones/helix/runtime
+export PIP_REQUIRE_VIRTUALENV=true
