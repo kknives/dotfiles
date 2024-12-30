@@ -1,0 +1,4 @@
+[[language]]
+name = "cmake"
+auto-format = true
+formatter = {command = "cmake-format", args = ["-"]}
