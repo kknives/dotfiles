@@ -2,3 +2,8 @@
 name = "cmake"
 auto-format = true
 formatter = {command = "cmake-format", args = ["-"]}
+
+[[language]]
+name = "nix"
+auto-format = true
+formatter = {command = "alejandra", args = ["-", "-q"]}
